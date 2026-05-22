@@ -1,111 +1,291 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitation Card</title>
+<title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#fce3ec,#e3f2fd);
+background:#fdf8f5;
+color:#333;
+overflow-x:hidden;
+}
+
+header{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600') center/cover;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
-}
-
-.card{
-background:white;
-max-width:650px;
-width:90%;
-padding:40px;
-border-radius:25px;
-box-shadow:0 15px 35px rgba(0,0,0,0.1);
 text-align:center;
+padding:20px;
+color:white;
 }
 
-h1{
-color:#e91e63;
-font-size:38px;
-margin-bottom:10px;
+.hero{
+max-width:800px;
 }
 
-h2{
-font-size:22px;
-font-weight:500;
+.hero h3{
+font-size:24px;
+letter-spacing:4px;
 margin-bottom:20px;
-color:#333;
+font-weight:300;
 }
 
-.info{
-font-size:18px;
-margin:8px 0;
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:90px;
+font-weight:700;
+line-height:1.1;
+margin-bottom:20px;
 }
 
-.highlight{
-color:#1976d2;
-font-weight:600;
-}
-
-.map{
-margin-top:25px;
-border-radius:20px;
-overflow:hidden;
+.hero p{
+font-size:20px;
+margin-bottom:35px;
 }
 
 .btn{
 display:inline-block;
-margin-top:20px;
-padding:12px 28px;
-background:#25D366;
+padding:14px 35px;
+background:#c8a97e;
 color:white;
 text-decoration:none;
 border-radius:50px;
-font-weight:600;
+font-weight:500;
+transition:.3s;
 }
 
 .btn:hover{
-opacity:0.9;
+transform:scale(1.05);
 }
+
+section{
+padding:90px 8%;
+}
+
+.title{
+text-align:center;
+font-family:'Cormorant Garamond',serif;
+font-size:55px;
+margin-bottom:50px;
+color:#b38b59;
+}
+
+.story{
+max-width:850px;
+margin:auto;
+text-align:center;
+font-size:18px;
+line-height:1.9;
+}
+
+.details{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+background:white;
+padding:40px 30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h2{
+font-family:'Cormorant Garamond',serif;
+font-size:36px;
+margin-bottom:15px;
+color:#b38b59;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:380px;
+object-fit:cover;
+border-radius:25px;
+}
+
+.rsvp{
+background:#fff;
+max-width:800px;
+margin:auto;
+padding:60px 30px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.rsvp h2{
+font-family:'Cormorant Garamond',serif;
+font-size:55px;
+margin-bottom:20px;
+color:#b38b59;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#111;
+color:#aaa;
+margin-top:80px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:55px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.title{
+font-size:40px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<header>
+
+<div class="hero">
+
+<h3>WE ARE GETTING MARRIED</h3>
+
+<h1>Emma <br> & <br> Daniel</h1>
+
+<p>
+Together with their families, invite you to celebrate their wedding day
+</p>
+
+<a href="#details" class="btn">View Invitation</a>
+
+</div>
+
+</header>
+
+<section>
+
+<h2 class="title">Our Love Story</h2>
+
+<div class="story">
+
+<p>
+From the moment we met, our journey has been filled with love, laughter and unforgettable memories.
+We are excited to begin this new chapter together and would be honored to celebrate with you on our special day.
+</p>
+
+</div>
+
+</section>
+
+<section id="details">
+
+<h2 class="title">Wedding Details</h2>
+
+<div class="details">
+
 <div class="card">
 
-<h1>🎉 You're Invited 🎉</h1>
+<h2>Date</h2>
 
-<h2>Mane 30th Birthday & Amelie First Tooth Party</h2>
+<p>Saturday</p>
+<p>20 June 2026</p>
 
-<p class="info">📅 Date: <span class="highlight">20.06.2026</span></p>
-<p class="info">⏰ Time: <span class="highlight">19:00</span></p>
-<p class="info">📍 Venue: <span class="highlight">Florence Restaurant</span></p>
+</div>
+
+<div class="card">
+
+<h2>Time</h2>
+
+<p>Ceremony Begins</p>
+<p>18:00</p>
+
+</div>
+
+<div class="card">
+
+<h2>Venue</h2>
+
+<p>Florence Restaurant</p>
+<p>Yerevan, Armenia</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200">
+
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200">
+
+<img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200">
+
+</div>
+
+</section>
+
+<section>
+
+<div class="rsvp">
+
+<h2>RSVP</h2>
+
+<p>
+Please join us for an unforgettable evening filled with love, joy and celebration.
+</p>
+
+<br>
 
 <a class="btn" href="https://wa.me/" target="_blank">
-RSVP on WhatsApp
+Confirm Attendance
 </a>
 
-<div class="map">
-
-<iframe
-width="100%"
-height="280"
-style="border:0"
-loading="lazy"
-allowfullscreen
-referrerpolicy="no-referrer-when-downgrade"
-src="https://www.google.com/maps?q=Florence%20Restaurant&output=embed">
-</iframe>
-
 </div>
 
-</div>
+</section>
+
+<footer>
+
+Made with Love • Wedding Invitation 2026
+
+</footer>
 
 </body>
 </html>

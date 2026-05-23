@@ -1,320 +1,899 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mane & Amelie Celebration</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎉 Mane's Birthday & Amelie's First Tooth Party!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    :root {
+      --pink: #f78fb3;
+      --purple: #c084fc;
+      --blue: #7dd3fc;
+      --yellow: #fde68a;
+      --mint: #6ee7b7;
+      --peach: #fdba74;
+      --dark: #1e1b4b;
+      --light: #fdf2f8;
+    }
 
-<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#f7efe8;
-color:#6d5c54;
-overflow-x:hidden;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
 
-header{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.30),rgba(0,0,0,.30)),
-url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1800') center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-color:white;
-}
+    /* ── CONFETTI CANVAS ── */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-.hero{
-max-width:900px;
-animation:fade 2s ease;
-}
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #fce4ec, #e8eaf6, #e0f7fa, #fff9c4);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      padding: 2rem;
+      position: relative;
+    }
 
-.hero h3{
-letter-spacing:6px;
-font-size:20px;
-font-weight:300;
-margin-bottom:20px;
-color:#f8ede3;
-}
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:85px;
-line-height:1.1;
-margin-bottom:25px;
-}
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      padding: 0.5rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: bounceIn 1s ease;
+    }
 
-.hero p{
-font-size:22px;
-margin-bottom:40px;
-}
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      animation: slideUp 1s ease;
+    }
 
-.btn{
-display:inline-block;
-padding:15px 38px;
-background:#c6a58b;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
-}
+    .hero h1 .highlight-birthday {
+      background: linear-gradient(135deg, #f472b6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.btn:hover{
-transform:translateY(-5px);
-box-shadow:0 12px 25px rgba(198,165,139,.35);
-}
+    .hero h1 .highlight-tooth {
+      background: linear-gradient(135deg, #818cf8, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-section{
-padding:100px 8%;
-}
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: 0.85;
+      animation: slideUp 1.2s ease;
+    }
 
-.title{
-text-align:center;
-font-family:'Playfair Display',serif;
-font-size:58px;
-margin-bottom:60px;
-color:#b08968;
-}
+    .hero-icons {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      animation: slideUp 1.4s ease;
+    }
 
-.details{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+    .hero-icons span {
+      display: inline-block;
+      margin: 0 0.4rem;
+      animation: float 3s ease-in-out infinite;
+    }
 
-.card{
-background:#fffaf5;
-padding:45px 30px;
-border-radius:30px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.06);
-transition:.3s;
-}
+    .hero-icons span:nth-child(2) { animation-delay: 0.3s; }
+    .hero-icons span:nth-child(3) { animation-delay: 0.6s; }
+    .hero-icons span:nth-child(4) { animation-delay: 0.9s; }
+    .hero-icons span:nth-child(5) { animation-delay: 1.2s; }
 
-.card:hover{
-transform:translateY(-10px);
-}
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-15px); }
+    }
 
-.card h2{
-font-family:'Playfair Display',serif;
-font-size:34px;
-margin-bottom:15px;
-color:#b08968;
-}
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 1.6s ease;
+      border: none;
+      cursor: pointer;
+    }
 
-.card p{
-font-size:18px;
-line-height:1.8;
-}
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(247, 143, 179, 0.45);
+    }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
+    /* ── COUNTDOWN ── */
+    .countdown-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #ede9fe, #fce7f3);
+    }
 
-.gallery img{
-width:100%;
-height:380px;
-object-fit:cover;
-border-radius:25px;
-}
+    .countdown-section h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
 
-.rsvp{
-background:#fffaf5;
-max-width:900px;
-margin:auto;
-padding:70px 35px;
-border-radius:35px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-.rsvp h2{
-font-family:'Playfair Display',serif;
-font-size:58px;
-margin-bottom:20px;
-color:#b08968;
-}
+    .countdown-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      min-width: 110px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
 
-.rsvp p{
-font-size:20px;
-margin-bottom:35px;
-line-height:1.8;
-}
+    .countdown-card:hover {
+      transform: translateY(-5px);
+    }
 
-.map{
-margin-top:40px;
-border-radius:25px;
-overflow:hidden;
-}
+    .countdown-card .number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-footer{
-background:#8d6e63;
-color:#f7efe8;
-text-align:center;
-padding:30px;
-margin-top:80px;
-}
+    .countdown-card .label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      font-weight: 600;
+    }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
+    /* ── DUAL EVENT CARDS ── */
+    .events-section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-@media(max-width:768px){
+    .events-section h2 {
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+    }
 
-.hero h1{
-font-size:55px;
-}
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
 
-.hero p{
-font-size:18px;
-}
+    .event-card {
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
 
-.title{
-font-size:42px;
-}
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+    }
 
-.rsvp h2{
-font-size:42px;
-}
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
 
-}
+    .event-card.birthday {
+      background: linear-gradient(180deg, #fff1f2, #fff);
+    }
 
-</style>
+    .event-card.birthday::before {
+      background: linear-gradient(90deg, #f472b6, #ec4899, #db2777);
+    }
+
+    .event-card.tooth {
+      background: linear-gradient(180deg, #eef2ff, #fff);
+    }
+
+    .event-card.tooth::before {
+      background: linear-gradient(90deg, #818cf8, #6366f1, #4f46e5);
+    }
+
+    .event-card .icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .event-card h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .event-card.birthday h3 {
+      color: #ec4899;
+    }
+
+    .event-card.tooth h3 {
+      color: #6366f1;
+    }
+
+    .event-card .tagline {
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 1.5rem;
+    }
+
+    .event-details {
+      list-style: none;
+      text-align: left;
+    }
+
+    .event-details li {
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .event-details li:last-child {
+      border-bottom: none;
+    }
+
+    .event-details .detail-icon {
+      font-size: 1.2rem;
+      width: 28px;
+      text-align: center;
+    }
+
+    /* ── GALLERY / FUN FACTS ── */
+    .fun-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #fef3c7, #fce7f3, #ede9fe);
+      text-align: center;
+    }
+
+    .fun-section h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .fun-facts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .fun-fact {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      width: 250px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+
+    .fun-fact:hover {
+      transform: scale(1.05);
+    }
+
+    .fun-fact .emoji {
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .fun-fact h4 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .fun-fact p {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 300;
+    }
+
+    /* ── RSVP ── */
+    .rsvp-section {
+      padding: 5rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .rsvp-section h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .rsvp-section .subtitle {
+      font-weight: 300;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    .rsvp-form {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      color: #555;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.3s;
+      outline: none;
+      background: #fafafa;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+      background: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 400;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      accent-color: var(--purple);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(192, 132, 252, 0.4);
+    }
+
+    /* ── SUCCESS MESSAGE ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-msg .big-emoji {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-msg h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: #10b981;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-msg p {
+      color: #888;
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    footer .hearts {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      font-weight: 300;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes bounceIn {
+      0%   { transform: scale(0.5); opacity: 0; }
+      60%  { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0%   { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── FLOATING EMOJIS ── */
+    .floating-emoji {
+      position: fixed;
+      font-size: 2rem;
+      pointer-events: none;
+      z-index: 9998;
+      animation: floatUp 3s ease forwards;
+    }
+
+    @keyframes floatUp {
+      0%   { opacity: 1; transform: translateY(0) rotate(0deg); }
+      100% { opacity: 0; transform: translateY(-400px) rotate(360deg); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown-card {
+        min-width: 80px;
+        padding: 1rem;
+      }
+
+      .countdown-card .number {
+        font-size: 2rem;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <!-- CONFETTI -->
+  <canvas id="confetti-canvas"></canvas>
 
-<div class="hero">
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="top">
+    <div class="hero-badge">🎉 You're Invited! 🎉</div>
+    <h1>
+      <span class="highlight-birthday">Mane's Birthday</span><br/>
+      <span style="font-size:0.6em; font-family:'Poppins',sans-serif; -webkit-text-fill-color:#888;">&</span><br/>
+      <span class="highlight-tooth">Amelie's First Tooth!</span>
+    </h1>
+    <p class="hero-subtitle">Two celebrations, one amazing day — come join the fun!</p>
+    <div class="hero-icons">
+      <span>🎂</span>
+      <span>🦷</span>
+      <span>🎈</span>
+      <span>🎁</span>
+      <span>🥳</span>
+    </div>
+    <a href="#rsvp" class="cta-btn">RSVP Now 💌</a>
+  </section>
 
-<h3>YOU ARE INVITED</h3>
+  <!-- ═══════════ COUNTDOWN ═══════════ -->
+  <section class="countdown-section fade-in">
+    <h2>⏳ Countdown to the Party</h2>
+    <div class="countdown-grid">
+      <div class="countdown-card">
+        <div class="number" id="days">00</div>
+        <div class="label">Days</div>
+      </div>
+      <div class="countdown-card">
+        <div class="number" id="hours">00</div>
+        <div class="label">Hours</div>
+      </div>
+      <div class="countdown-card">
+        <div class="number" id="minutes">00</div>
+        <div class="label">Minutes</div>
+      </div>
+      <div class="countdown-card">
+        <div class="number" id="seconds">00</div>
+        <div class="label">Seconds</div>
+      </div>
+    </div>
+  </section>
 
-<h1>Mane’s 30th Birthday <br> & <br> Amelie’s First Tooth Party</h1>
+  <!-- ═══════════ EVENT DETAILS ═══════════ -->
+  <section class="events-section fade-in">
+    <h2>✨ Party Details</h2>
+    <div class="events-grid">
 
-<p>
-Join us for a warm and unforgettable evening filled with love, laughter, music and beautiful memories.
-</p>
+      <!-- BIRTHDAY CARD -->
+      <div class="event-card birthday">
+        <div class="icon">🎂</div>
+        <h3>Mane's Birthday</h3>
+        <p class="tagline">Let's celebrate another amazing year!</p>
+        <ul class="event-details">
+          <li><span class="detail-icon">📅</span> Saturday, July 19, 2025</li>
+          <li><span class="detail-icon">🕐</span> 3:00 PM – 7:00 PM</li>
+          <li><span class="detail-icon">📍</span> 123 Celebration Lane</li>
+          <li><span class="detail-icon">🎭</span> Games, Cake & Music!</li>
+          <li><span class="detail-icon">👕</span> Theme: Colorful & Fun</li>
+        </ul>
+      </div>
 
-<a href="#details" class="btn">Open Invitation</a>
+      <!-- TOOTH CARD -->
+      <div class="event-card tooth">
+        <div class="icon">🦷</div>
+        <h3>Amelie's First Tooth</h3>
+        <p class="tagline">A tiny tooth, a huge milestone!</p>
+        <ul class="event-details">
+          <li><span class="detail-icon">📅</span> Saturday, July 19, 2025</li>
+          <li><span class="detail-icon">🕐</span> 3:00 PM – 7:00 PM</li>
+          <li><span class="detail-icon">📍</span> 123 Celebration Lane</li>
+          <li><span class="detail-icon">🧁</span> Sweet Treats & Tooth Fairy Fun</li>
+          <li><span class="detail-icon">✨</span> Theme: Sparkle & Shine</li>
+        </ul>
+      </div>
 
-</div>
+    </div>
+  </section>
 
-</header>
+  <!-- ═══════════ FUN FACTS ═══════════ -->
+  <section class="fun-section fade-in">
+    <h2>🌟 Why This Day is Special</h2>
+    <div class="fun-facts">
+      <div class="fun-fact">
+        <div class="emoji">🎂</div>
+        <h4>Mane is Growing!</h4>
+        <p>Another year wiser, cooler, and more awesome!</p>
+      </div>
+      <div class="fun-fact">
+        <div class="emoji">🦷</div>
+        <h4>Amelie's First Tooth!</h4>
+        <p>She's officially a big kid now — watch out Tooth Fairy!</p>
+      </div>
+      <div class="fun-fact">
+        <div class="emoji">🎉</div>
+        <h4>Double the Joy!</h4>
+        <p>Two reasons to celebrate together — it's going to be epic!</p>
+      </div>
+    </div>
+  </section>
 
-<section id="details">
+  <!-- ═══════════ RSVP ═══════════ -->
+  <section class="rsvp-section fade-in" id="rsvp">
+    <h2>💌 RSVP</h2>
+    <p class="subtitle">Please let us know if you can make it!</p>
 
-<h2 class="title">Celebration Details</h2>
+    <div class="rsvp-form" id="rsvpForm">
+      <form id="invitationForm">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required />
+        </div>
 
-<div class="details">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" />
+          </div>
+        </div>
 
-<div class="card">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Number of Guests *</label>
+            <select id="guests" name="guests" required>
+              <option value="">Select…</option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="attending">Attending *</label>
+            <select id="attending" name="attending" required>
+              <option value="">Select…</option>
+              <option value="yes">🎉 Yes, I'll be there!</option>
+              <option value="maybe">🤔 Maybe</option>
+              <option value="no">😢 Sorry, can't make it</option>
+            </select>
+          </div>
+        </div>
 
-<h2>📅 Date</h2>
+        <div class="form-group">
+          <label>Celebrating With Us?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="celebration" value="birthday"> 🎂 Mane's Birthday</label>
+            <label><input type="checkbox" name="celebration" value="tooth"> 🦷 Amelie's First Tooth</label>
+          </div>
+        </div>
 
-<p>20 June 2026</p>
+        <div class="form-group">
+          <label for="dietary">Dietary Requirements / Allergies</label>
+          <input type="text" id="dietary" name="dietary" placeholder="e.g., Nut-free, Vegetarian…" />
+        </div>
 
-</div>
+        <div class="form-group">
+          <label for="message">Leave a Sweet Message 💕</label>
+          <textarea id="message" name="message" placeholder="Happy Birthday Mane! Congrats Amelie!"></textarea>
+        </div>
 
-<div class="card">
+        <button type="submit" class="submit-btn">Send RSVP 🚀</button>
+      </form>
 
-<h2>⏰ Time</h2>
+      <div class="success-msg" id="successMsg">
+        <div class="big-emoji">🎉🦷🎂</div>
+        <h3>Thank You!</h3>
+        <p>Your RSVP has been received. We can't wait to celebrate with you!</p>
+      </div>
+    </div>
+  </section>
 
-<p>19:00 PM</p>
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <div class="hearts">💖🎂🦷💖</div>
+    <p>Made with love for <strong>Mane</strong> & <strong>Amelie</strong></p>
+    <p style="margin-top:0.5rem; font-size:0.8rem; opacity:0.5;">© 2025 — See you at the party!</p>
+  </footer>
 
-</div>
+  <!-- ═══════════ JAVASCRIPT ═══════════ -->
+  <script>
+    /* ── COUNTDOWN ── */
+    // *** CHANGE THIS DATE to your actual party date ***
+    const partyDate = new Date('2025-07-19T15:00:00').getTime();
 
-<div class="card">
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = partyDate - now;
 
-<h2>📍 Venue</h2>
+      if (diff <= 0) {
+        document.getElementById('days').textContent    = '🎉';
+        document.getElementById('hours').textContent   = '🎉';
+        document.getElementById('minutes').textContent = '🎉';
+        document.getElementById('seconds').textContent = '🎉';
+        return;
+      }
 
-<p>
-Florence Restaurant <br>
-Yerevan, Armenia
-</p>
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
 
-</div>
+      document.getElementById('days').textContent    = String(d).padStart(2, '0');
+      document.getElementById('hours').textContent   = String(h).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+    }
 
-</div>
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-</section>
+    /* ── SCROLL FADE-IN ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
 
-<section>
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-<h2 class="title">Our Special Day</h2>
+    /* ── FORM SUBMIT ── */
+    document.getElementById('invitationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      launchConfetti();
+    });
 
-<div class="gallery">
+    /* ── CONFETTI ── */
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let confettiPieces = [];
+    let animating = false;
 
-<img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200">
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-<img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200">
+    const confettiColors = [
+      '#f78fb3','#c084fc','#7dd3fc','#fde68a',
+      '#6ee7b7','#fdba74','#f472b6','#818cf8',
+      '#34d399','#fbbf24'
+    ];
 
-<img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=1200">
+    function createConfetti(count = 150) {
+      for (let i = 0; i < count; i++) {
+        confettiPieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          w: Math.random() * 10 + 5,
+          h: Math.random() * 6 + 3,
+          color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+          speed: Math.random() * 3 + 2,
+          angle: Math.random() * Math.PI * 2,
+          spin: (Math.random() - 0.5) * 0.2,
+          drift: (Math.random() - 0.5) * 2
+        });
+      }
+    }
 
-</div>
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiPieces.forEach((p, i) => {
+        p.y += p.speed;
+        p.x += p.drift;
+        p.angle += p.spin;
 
-</section>
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
 
-<section>
+        if (p.y > canvas.height + 20) {
+          confettiPieces.splice(i, 1);
+        }
+      });
 
-<div class="rsvp">
+      if (confettiPieces.length > 0) {
+        requestAnimationFrame(drawConfetti);
+      } else {
+        animating = false;
+      }
+    }
 
-<h2>RSVP</h2>
+    function launchConfetti() {
+      if (animating) return;
+      animating = true;
+      createConfetti(200);
+      drawConfetti();
+    }
 
-<p>
-We would be delighted to celebrate this beautiful day together with you.
-Please confirm your attendance.
-</p>
+    // Auto-launch confetti on page load
+    window.addEventListener('load', () => {
+      setTimeout(launchConfetti, 800);
+    });
 
-<a class="btn" href="https://wa.me/" target="_blank">
-Confirm Attendance
-</a>
-
-<div class="map">
-
-<iframe
-width="100%"
-height="350"
-style="border:0"
-loading="lazy"
-allowfullscreen
-referrerpolicy="no-referrer-when-downgrade"
-src="https://www.google.com/maps?q=Florence%20Restaurant%20Yerevan&output=embed">
-</iframe>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-Made with Love • Mane & Amelie Celebration 2026
-
-</footer>
+    /* ── FLOATING EMOJIS ON CLICK ── */
+    document.addEventListener('click', function(e) {
+      const emojis = ['🎉','🎂','🦷','🎈','🥳','💖','✨','🎁','⭐'];
+      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const el = document.createElement('div');
+      el.className = 'floating-emoji';
+      el.textContent = emoji;
+      el.style.left = e.clientX + 'px';
+      el.style.top  = e.clientY + 'px';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    });
+  </script>
 
 </body>
 </html>
